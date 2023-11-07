@@ -1,10 +1,10 @@
 import "./App.css";
 import api from "./api/axiosConfig";
 import { useState, useEffect } from "react";
-import Layout from "./components/Layout";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Header from "./components/header/Header";
+import Trailer from "./components/trailer/Trailer";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -27,6 +27,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home movies={movies} />} />
+        <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
       </Routes>
     </div>
   );
