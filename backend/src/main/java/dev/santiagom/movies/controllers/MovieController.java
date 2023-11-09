@@ -1,9 +1,9 @@
-package dev.santiagom.movies;
+package dev.santiagom.movies.controllers;
 
-import org.bson.types.ObjectId;
+import dev.santiagom.movies.services.MovieService;
+import dev.santiagom.movies.entities.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

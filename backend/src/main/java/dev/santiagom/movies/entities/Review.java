@@ -1,4 +1,4 @@
-package dev.santiagom.movies;
+package dev.santiagom.movies.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
