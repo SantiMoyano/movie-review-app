@@ -1,7 +1,5 @@
-package dev.santiagom.movies.controllers;
+package dev.santiagom.movies.movies;
 
-import dev.santiagom.movies.services.MovieService;
-import dev.santiagom.movies.entities.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

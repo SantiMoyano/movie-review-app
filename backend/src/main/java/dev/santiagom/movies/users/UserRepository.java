@@ -1,11 +1,13 @@
-package dev.santiagom.movies.repositories;
+package dev.santiagom.movies.users;
 
-import dev.santiagom.movies.entities.User;
+import dev.santiagom.movies.users.User;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends MongoRepository<User, ObjectId> {
-
+    Optional<User> findByUsername(String username);
 }

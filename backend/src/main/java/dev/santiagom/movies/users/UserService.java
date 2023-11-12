@@ -1,7 +1,7 @@
-package dev.santiagom.movies.services;
+package dev.santiagom.movies.users;
 
-import dev.santiagom.movies.entities.User;
-import dev.santiagom.movies.repositories.UserRepository;
+import dev.santiagom.movies.users.User;
+import dev.santiagom.movies.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

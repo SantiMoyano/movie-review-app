@@ -1,6 +1,6 @@
-package dev.santiagom.movies.repositories;
+package dev.santiagom.movies.movies;
 
-import dev.santiagom.movies.entities.Movie;
+import dev.santiagom.movies.movies.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

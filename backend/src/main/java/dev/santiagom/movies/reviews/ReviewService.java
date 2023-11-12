@@ -1,8 +1,8 @@
-package dev.santiagom.movies.services;
+package dev.santiagom.movies.reviews;
 
-import dev.santiagom.movies.entities.Movie;
-import dev.santiagom.movies.entities.Review;
-import dev.santiagom.movies.repositories.ReviewRepository;
+import dev.santiagom.movies.movies.Movie;
+import dev.santiagom.movies.reviews.Review;
+import dev.santiagom.movies.reviews.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

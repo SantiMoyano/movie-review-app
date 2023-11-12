@@ -1,5 +1,6 @@
-package dev.santiagom.movies.entities;
+package dev.santiagom.movies.movies;
 
+import dev.santiagom.movies.reviews.Review;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

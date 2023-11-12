@@ -1,7 +1,7 @@
-package dev.santiagom.movies.services;
+package dev.santiagom.movies.movies;
 
-import dev.santiagom.movies.entities.Movie;
-import dev.santiagom.movies.repositories.MovieRepository;
+import dev.santiagom.movies.movies.Movie;
+import dev.santiagom.movies.movies.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
