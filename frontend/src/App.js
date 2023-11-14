@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import Header from "./components/header/Header";
 import Trailer from "./components/trailer/Trailer";
 import Reviews from "./components/reviews/Reviews";
+import Login from "./components/login/Login";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -42,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home movies={movies} />} />
         <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/Reviews/:movieId"
           element={

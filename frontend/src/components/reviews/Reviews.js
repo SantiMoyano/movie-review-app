@@ -66,7 +66,7 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
           }
           {reviews?.map((r) => {
             return (
-              <>
+              <div key={r.body}>
                 <Row>
                   <Col>{r.body}</Col>
                 </Row>
@@ -75,7 +75,7 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
                     <hr />
                   </Col>
                 </Row>
-              </>
+              </div>
             );
           })}
         </Col>

@@ -1,0 +1,14 @@
+form div {
+  padding: 8px 0;
+}
+
+form button {
+  width: 50%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+  width: 100%;
+}

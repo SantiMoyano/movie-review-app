@@ -28,9 +28,9 @@ function Header() {
               Watch List
             </NavLink>
           </Nav>
-          <Button variant="outline-info" className="me-2">
-            Login
-          </Button>
+          <NavLink className="nav-link" to="/login">
+            <Button variant="outline-info">Login</Button>
+          </NavLink>
           <Button variant="outline-info">Register</Button>
         </Navbar.Collapse>
       </Container>

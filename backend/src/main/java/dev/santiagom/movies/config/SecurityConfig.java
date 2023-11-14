@@ -35,6 +35,8 @@ public class SecurityConfig {
                         authRequest
                                 .requestMatchers("/api/v1/auth/**")
                                 .permitAll()
+                                .requestMatchers("/api/v1/movies/**")
+                                .permitAll()
                                 .anyRequest()
                                 .authenticated())
                 .sessionManagement(sessionManager ->
