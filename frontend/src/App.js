@@ -12,7 +12,7 @@ import api from "./api/axiosConfig";
 
 function App() {
   const { token, handleLogin, handleLogout } = SessionManager();
-  const [isLoggedIn, setIsLoggedIn] = useState(token != null);
+  const [isLoggedIn, setIsLoggedIn] = useState(token.length > 1);
   const [movies, setMovies] = useState();
   const [movie, setMovie] = useState();
   const [reviews, setReviews] = useState([]);
@@ -39,7 +39,8 @@ function App() {
   };
 
   useEffect(() => {
-    setIsLoggedIn(token != null);
+    console.log(token.length > 1);
+    setIsLoggedIn(token.length > 1);
   }, [token, handleLogout]);
 
   useEffect(() => {
