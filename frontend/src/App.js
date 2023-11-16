@@ -14,6 +14,7 @@ function App() {
   const { token, handleLogin, handleLogout } = SessionManager();
   const [isLoggedIn, setIsLoggedIn] = useState(token.length > 1);
   const [movies, setMovies] = useState();
+  const [filteredMovies, setFilteredMovies] = useState();
   const [movie, setMovie] = useState();
   const [reviews, setReviews] = useState([]);
 
@@ -22,6 +23,7 @@ function App() {
       console.log(api);
       const response = await api.get("/api/v1/movies");
       setMovies(response.data);
+      setFilteredMovies([...response.data]);
     } catch (err) {
       console.log(err);
     }
@@ -38,6 +40,13 @@ function App() {
     }
   };
 
+  function handleGenreClick(genreName) {
+    const filteredMovies = movies.filter((movie) =>
+      movie.genres.includes(genreName)
+    );
+    setFilteredMovies(filteredMovies);
+  }
+
   useEffect(() => {
     console.log(token.length > 1);
     setIsLoggedIn(token.length > 1);
@@ -51,7 +60,12 @@ function App() {
     <div className="App">
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/" element={<Home movies={movies} />} />
+        <Route
+          path="/"
+          element={
+            <Home movies={filteredMovies} handleGenreClick={handleGenreClick} />
+          }
+        />
         <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />

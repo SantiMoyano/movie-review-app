@@ -3,10 +3,10 @@ import Hero from "../hero/Hero";
 import GenresList from "../genres/GenresList";
 import genres from "../../genresList.json";
 
-function Home({ movies }) {
+function Home({ movies, handleGenreClick }) {
   return (
     <>
-      <GenresList genres={genres} />
+      <GenresList genres={genres} handleGenreClick={handleGenreClick} />
       <Hero movies={movies} />
     </>
   );
