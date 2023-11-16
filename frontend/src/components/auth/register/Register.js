@@ -97,7 +97,7 @@ function Register() {
             </div>
             <p>{errorMessage}</p>
             <div className="button-container">
-              <button type="submit" className="btn btn-primary btn-block">
+              <button type="submit" className="btn btn-warning btn-block">
                 Crear una cuenta
               </button>
             </div>

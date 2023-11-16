@@ -71,7 +71,7 @@ function Login({ handleLogin }) {
             </div>
             <p>{errorMessage}</p>
             <div className="button-container">
-              <button type="submit" className="btn btn-primary btn-block">
+              <button type="submit" className="btn btn-warning btn-block">
                 Iniciar Sesión
               </button>
             </div>

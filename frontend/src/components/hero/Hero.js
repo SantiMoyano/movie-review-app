@@ -47,7 +47,7 @@ function Hero({ movies }) {
                         </Link>
                         <div className="movie-review-button-container">
                           <Button
-                            variant="info"
+                            variant="warning"
                             onClick={() => Reviews(movie.imdbId)}
                           >
                             Reviews

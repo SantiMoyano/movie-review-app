@@ -7,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SessionManager from "../../SessionManager";
+import "./Header.css";
 
 function Header({ isLoggedIn }) {
   const { token, handleLogout } = SessionManager();
@@ -47,14 +48,14 @@ function Header({ isLoggedIn }) {
               </Button>
             </>
           ) : (
-            <>
+            <div className="auth-buttons">
               <NavLink className="nav-link" to="/login">
-                <Button variant="outline-info">Login</Button>
+                <Button variant="outline-warning">Login</Button>
               </NavLink>
               <NavLink className="nav-link" to="/register">
-                <Button variant="outline-info">Register</Button>
+                <Button variant="outline-warning">Register</Button>
               </NavLink>
-            </>
+            </div>
           )}
         </Navbar.Collapse>
       </Container>

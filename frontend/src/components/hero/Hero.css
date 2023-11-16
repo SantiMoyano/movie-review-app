@@ -47,6 +47,15 @@
   align-items: center;
 }
 
+.movie-title h4 {
+  font-size: 2rem;
+  transition: 0.3s;
+}
+
+.movie-title h4:hover {
+  font-size: 3rem;
+}
+
 .movie-buttons-container {
   display: flex;
   justify-content: space-between;
@@ -63,14 +72,25 @@
   padding: 0px;
   margin: 0;
   color: gold;
-  font-size: 3rem;
+  font-size: 5rem;
   transition: 0.3s;
   cursor: pointer;
 }
 
 .play-button-icon:hover {
-  font-size: 3rem;
+  font-size: 6rem;
   color: white;
+}
+
+.movie-review-button-container button {
+  padding: 8px 16px;
+  transition: transform 0.3s;
+}
+
+.movie-review-button-container button:hover {
+  transform: scale(1.2);
+  border-color: white;
+  background-color: white;
 }
 
 @media only screen and (max-width: 800px) {

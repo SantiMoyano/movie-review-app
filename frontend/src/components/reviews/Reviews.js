@@ -82,7 +82,7 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
                   <Col>{r.body}</Col>
                 </Row>
                 <Row>
-                  <Col style={{ color: "#ADD8E6" }}>~ {r.username}</Col>
+                  <Col style={{ color: "yellow" }}>~ {r.username}</Col>
                 </Row>
                 <Row>
                   <Col>

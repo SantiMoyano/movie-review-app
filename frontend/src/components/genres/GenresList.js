@@ -14,6 +14,7 @@ const GenresList = ({ genres, handleGenreClick }) => {
             key={genre.id}
             variant={genre === selectedGenre ? "primary" : "secondary"}
             onClick={() => handleGenreClick(genre.name)}
+            className="genre-btn"
           >
             {genre.name}
           </Button>
