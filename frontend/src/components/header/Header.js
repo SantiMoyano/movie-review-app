@@ -5,8 +5,20 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import SessionManager from "../../SessionManager";
 
-function Header() {
+function Header({ isLoggedIn }) {
+  const { token, handleLogout } = SessionManager();
+  const [loggedOut, setLoggedOut] = useState(false);
+
+  useEffect(() => {}, [token, loggedOut]);
+
+  function logout() {
+    setLoggedOut(true);
+    handleLogout();
+  }
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
@@ -28,10 +40,22 @@ function Header() {
               Watch List
             </NavLink>
           </Nav>
-          <NavLink className="nav-link" to="/login">
-            <Button variant="outline-info">Login</Button>
-          </NavLink>
-          <Button variant="outline-info">Register</Button>
+          {isLoggedIn && !loggedOut ? (
+            <>
+              <Button onClick={logout} variant="outline-info">
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <NavLink className="nav-link" to="/login">
+                <Button variant="outline-info">Login</Button>
+              </NavLink>
+              <NavLink className="nav-link" to="/register">
+                <Button variant="outline-info">Register</Button>
+              </NavLink>
+            </>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

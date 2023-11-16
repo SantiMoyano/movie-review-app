@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useRef } from "react";
-import api from "../../api/axiosConfig";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import ReviewForm from "../reviewForm/ReviewForm";
+import ReviewForm from "./reviewForm/ReviewForm";
+import api from "../../api/axiosConfig";
+import SessionManager from "../../SessionManager";
 
 function Reviews({ getMovieData, movie, reviews, setReviews }) {
+  const { token } = SessionManager();
   const revText = useRef();
   const params = useParams();
   const movieId = params.movieId;
@@ -17,12 +19,21 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
   const addReview = async (e) => {
     e.preventDefault();
     const rev = revText.current;
-
+    const tokenWithoutQuotes = token.replace(/^"(.*)"$/, "$1");
+    console.log(tokenWithoutQuotes);
     try {
-      const response = await api.post("/api/v1/reviews", {
-        reviewBody: rev.value,
-        imdbId: movieId,
-      });
+      const response = await api.post(
+        "/api/v1/reviews",
+        {
+          reviewBody: rev.value,
+          imdbId: movieId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${tokenWithoutQuotes}`,
+          },
+        }
+      );
 
       const updatedReviews = [...reviews, { body: rev.value }];
 
@@ -69,6 +80,9 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
               <div key={r.body}>
                 <Row>
                   <Col>{r.body}</Col>
+                </Row>
+                <Row>
+                  <Col style={{ color: "#ADD8E6" }}>~ {r.username}</Col>
                 </Row>
                 <Row>
                   <Col>

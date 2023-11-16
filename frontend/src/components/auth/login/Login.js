@@ -1,22 +1,32 @@
 import "./Login.css";
-import api from "../../api/axiosConfig";
+import api from "../../../api/axiosConfig";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ handleLogin }) {
+  const navigate = useNavigate();
+
+  function home() {
+    navigate("/");
+  }
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
+
     try {
       const response = await api.post("/api/v1/auth/login", {
         username: username,
         password: password,
       });
+      const token = response.data.token;
+      handleLogin(token);
+      home();
     } catch (err) {
-      console.log("Login fallido");
+      changeErrorMessage("La contraseña o el usuario ingresado no existen");
     }
   }
 
@@ -26,6 +36,13 @@ function Login() {
 
   function handleChangePassword(e) {
     setPassword(e.target.value);
+  }
+
+  function changeErrorMessage(str) {
+    setErrorMessage(str);
+    setTimeout(function () {
+      setErrorMessage("");
+    }, 3000);
   }
 
   return (
@@ -52,6 +69,7 @@ function Login() {
                 id="password"
               />
             </div>
+            <p>{errorMessage}</p>
             <div className="button-container">
               <button type="submit" className="btn btn-primary btn-block">
                 Iniciar Sesión

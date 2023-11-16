@@ -9,6 +9,10 @@ form button {
 .button-container {
   display: flex;
   justify-content: center;
-  padding: 32px 0;
+  padding: 28px 0;
   width: 100%;
+}
+
+p {
+  color: rgb(218, 90, 90);
 }

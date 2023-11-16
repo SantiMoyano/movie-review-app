@@ -15,8 +15,10 @@ public class Review {
     @Id
     private ObjectId id;
     private String body;
+    private String username;
 
-    public Review(String body) {
+    public Review(String body, String username) {
         this.body = body;
+        this.username = username;
     }
 }
