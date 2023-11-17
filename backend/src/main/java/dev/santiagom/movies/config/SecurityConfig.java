@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,6 +35,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        System.out.println("Security Filter Chain:" + http);
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authRequest ->
@@ -41,6 +43,8 @@ public class SecurityConfig {
                                 .requestMatchers("/api/v1/auth/**")
                                 .permitAll()
                                 .requestMatchers("/api/v1/movies/**")
+                                .permitAll()
+                                .requestMatchers("/api/v1/reviews/all-reviews/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated())

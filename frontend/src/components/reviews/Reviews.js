@@ -19,9 +19,9 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
   const addReview = async (e) => {
     e.preventDefault();
     const rev = revText.current;
-    const tokenWithoutQuotes = token.replace(/^"(.*)"$/, "$1");
-    console.log(tokenWithoutQuotes);
+
     try {
+      console.log(`Bearer ${token.slice(1, -1)}`);
       const response = await api.post(
         "/api/v1/reviews",
         {
@@ -30,7 +30,7 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
         },
         {
           headers: {
-            Authorization: `Bearer ${tokenWithoutQuotes}`,
+            Authorization: `Bearer ${token.slice(1, -1)}`,
           },
         }
       );
