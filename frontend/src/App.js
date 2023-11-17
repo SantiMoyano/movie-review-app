@@ -17,13 +17,23 @@ function App() {
   const [filteredMovies, setFilteredMovies] = useState();
   const [movie, setMovie] = useState();
   const [reviews, setReviews] = useState([]);
+  const [allReviews, setAllReviews] = useState([]);
 
   const getMovies = async () => {
     try {
-      console.log(api);
       const response = await api.get("/api/v1/movies");
       setMovies(response.data);
       setFilteredMovies([...response.data]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getAllReviews = async () => {
+    try {
+      const response = await api.get("/api/v1/reviews/all-reviews");
+      console.log(response.data);
+      setAllReviews(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -54,6 +64,7 @@ function App() {
 
   useEffect(() => {
     getMovies();
+    getAllReviews();
   }, []);
 
   return (
@@ -63,7 +74,11 @@ function App() {
         <Route
           path="/"
           element={
-            <Home movies={filteredMovies} handleGenreClick={handleGenreClick} />
+            <Home
+              movies={filteredMovies}
+              handleGenreClick={handleGenreClick}
+              allReviews={allReviews}
+            />
           }
         />
         <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
