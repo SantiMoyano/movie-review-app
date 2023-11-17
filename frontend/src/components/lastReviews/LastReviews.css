@@ -1,0 +1,18 @@
+.last-reviews-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.last-reviews-container ul {
+  padding: 16px 0;
+  width: 36rem;
+}
+
+.last-reviews-container li {
+  border: solid 1px white;
+  border-radius: 5px;
+  padding: 16px;
+  gap: 8px;
+}
