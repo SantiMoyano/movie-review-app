@@ -6,7 +6,7 @@ import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-function Hero({ movies }) {
+function Hero({ filteredMovies }) {
   const navigate = useNavigate();
 
   function Reviews(movieId) {
@@ -16,8 +16,8 @@ function Hero({ movies }) {
   return (
     <div>
       <Carousel>
-        {movies &&
-          movies.map((movie) => {
+        {filteredMovies &&
+          filteredMovies.map((movie) => {
             return (
               <Paper key={movie.imdbId}>
                 <div className="movie-card-container">

@@ -32,7 +32,6 @@ function App() {
   const getAllReviews = async () => {
     try {
       const response = await api.get("/api/v1/reviews/all-reviews");
-      console.log(response.data);
       setAllReviews(response.data);
     } catch (err) {
       console.log(err);
@@ -75,7 +74,8 @@ function App() {
           path="/"
           element={
             <Home
-              movies={filteredMovies}
+              filteredMovies={filteredMovies}
+              allMovies={movies}
               handleGenreClick={handleGenreClick}
               allReviews={allReviews}
             />

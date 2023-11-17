@@ -11,8 +11,39 @@
 }
 
 .last-reviews-container li {
-  border: solid 1px white;
+  background-color: black;
+  color: white;
+  border: solid 1px yellow;
   border-radius: 5px;
   padding: 16px;
   gap: 8px;
+}
+
+.last-reviews-container li #date {
+  color: rgb(111, 111, 111);
+}
+
+.last-reviews-container figure {
+  margin: 0;
+  padding: 0;
+  max-width: 200px;
+}
+
+.last-reviews-container figure img {
+  width: 100%;
+  min-width: 200px;
+}
+
+.last-reviews-container figure figcaption {
+  text-align: center;
+  font-weight: bold;
+}
+
+.last-reviews-container .review-info {
+  min-width: 350px;
+  padding: 0 16px;
+}
+
+.last-reviews-container .review-info div {
+  padding: 2px;
 }

@@ -4,12 +4,12 @@ import GenresList from "../genres/GenresList";
 import genres from "../../genresList.json";
 import LastReviews from "../lastReviews/LastReviews";
 
-function Home({ movies, handleGenreClick, allReviews }) {
+function Home({ filteredMovies, allMovies, handleGenreClick, allReviews }) {
   return (
     <>
       <GenresList genres={genres} handleGenreClick={handleGenreClick} />
-      <Hero movies={movies} />
-      <LastReviews allReviews={allReviews} />
+      <Hero filteredMovies={filteredMovies} />
+      <LastReviews allReviews={allReviews} allMovies={allMovies} />
     </>
   );
 }
