@@ -1,11 +1,13 @@
 import "./LastReviews.css";
 
 function LastReviews({ allReviews, allMovies }) {
+  const reversedReviews = [...allReviews].reverse();
+  const lastFiveReviews = reversedReviews.slice(0, 5);
   return (
     <section className="last-reviews-container">
       <h2>Last Reviews</h2>
       <ul className="list-group">
-        {allReviews.map((review) => {
+        {lastFiveReviews.map((review) => {
           const timestamp = review.id.timestamp;
           const fecha = new Date(timestamp * 1000);
           const fechaFormateada = fecha.toLocaleString();
@@ -40,7 +42,7 @@ function Review({ review, movieData, fechaFormateada }) {
                   alt={`Poster for ${movieData.title}`}
                   className="img-fluid"
                 />
-                <figcaption className="mt-2">Ver trailer</figcaption>
+                <figcaption className="mt-2">Watch trailer</figcaption>
               </figure>
             )}
           </div>

@@ -21,11 +21,16 @@ function Header({ isLoggedIn }) {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar
+      bg="dark"
+      variant="dark"
+      expand="lg"
+      className="justify-content-center text-center"
+    >
       <Container fluid>
         <Navbar.Brand href="/" style={{ color: "gold" }}>
           <FontAwesomeIcon icon={faVideoSlash} />
-          Gold
+          <span className="ms-2">Gold</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -43,9 +48,11 @@ function Header({ isLoggedIn }) {
           </Nav>
           {isLoggedIn && !loggedOut ? (
             <>
-              <Button onClick={logout} variant="outline-info">
-                Logout
-              </Button>
+              <div className="auth-buttons">
+                <Button onClick={logout} variant="outline-warning">
+                  Logout
+                </Button>
+              </div>
             </>
           ) : (
             <div className="auth-buttons">

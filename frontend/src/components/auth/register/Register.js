@@ -16,7 +16,7 @@ function Register() {
       changeErrorMessage("Las contraseñas no coinciden");
     } else {
       try {
-        const response = await api.post("/api/v1/auth/login", {
+        const response = await api.post("/api/v1/auth/register", {
           username: username,
           password: password,
         });
