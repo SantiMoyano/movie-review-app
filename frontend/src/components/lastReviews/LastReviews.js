@@ -33,7 +33,7 @@ function Review({ review, movieData, fechaFormateada }) {
   return (
     <>
       <li className="list-group-item">
-        <div className="d-flex justify-content-between align-items-center">
+        <div className="last-review-card d-flex justify-content-between align-items-center">
           <div className="d-flex flex-column align-items-center">
             {movieData && (
               <figure className="mt-2">

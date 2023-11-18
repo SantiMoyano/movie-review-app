@@ -48,3 +48,22 @@
 .last-reviews-container .review-info div {
   padding: 2px;
 }
+
+@media only screen and (max-width: 800px) {
+  .last-reviews-container .review-info {
+    min-width: 100px;
+    padding: 0 16px;
+  }
+
+  .last-reviews-container ul {
+    padding: 16px 0;
+    width: 90dvw;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .last-review-card {
+    display: flex;
+    flex-direction: column;
+  }
+}
