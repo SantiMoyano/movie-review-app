@@ -26,7 +26,7 @@ function Login({ handleLogin }) {
       handleLogin(token);
       home();
     } catch (err) {
-      changeErrorMessage("La contraseña o el usuario ingresado no existen");
+      changeErrorMessage("Invalid username or password");
     }
   }
 
@@ -49,10 +49,10 @@ function Login({ handleLogin }) {
     <section className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <h2 className="text-center mt-4">Iniciar Sesión</h2>
+          <h2 className="text-center mt-4">Login</h2>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="form-group">
-              <label htmlFor="text">Usuario</label>
+              <label htmlFor="text">Username</label>
               <input
                 onChange={(e) => handleChangeUsername(e)}
                 type="text"
@@ -61,7 +61,7 @@ function Login({ handleLogin }) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="password">Password</label>
               <input
                 onChange={(e) => handleChangePassword(e)}
                 type="password"
@@ -72,7 +72,7 @@ function Login({ handleLogin }) {
             <p>{errorMessage}</p>
             <div className="button-container">
               <button type="submit" className="btn btn-warning btn-block">
-                Iniciar Sesión
+                Login
               </button>
             </div>
           </form>

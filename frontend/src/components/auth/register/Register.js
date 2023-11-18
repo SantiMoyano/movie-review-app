@@ -1,37 +1,43 @@
 import "./Register.css";
 import api from "../../../api/axiosConfig";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
+
+  function goLogin() {
+    navigate("/login");
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     if (!passwordMatches()) {
-      changeErrorMessage("Las contraseñas no coinciden");
+      changeErrorMessage("Passwords do not match");
     } else {
       try {
         const response = await api.post("/api/v1/auth/register", {
           username: username,
           password: password,
         });
+        changeSuccessMessage("Registration Successful");
+        setTimeout(() => {
+          goLogin();
+        }, 1000);
       } catch (e) {
-        changeErrorMessage("La contraseña o el usuario ingresado no existen");
+        changeErrorMessage("Invalid username or password");
       }
     }
   }
 
   function passwordMatches() {
     return password === confirmPassword;
-  }
-
-  function handleChangeEmail(e) {
-    setEmail(e.target.value);
   }
 
   function handleChangeUsername(e) {
@@ -46,6 +52,13 @@ function Register() {
     setConfirmPassword(e.target.value);
   }
 
+  function changeSuccessMessage(str) {
+    setSuccessMessage(str);
+    setTimeout(function () {
+      setSuccessMessage("");
+    }, 1000);
+  }
+
   function changeErrorMessage(str) {
     setErrorMessage(str);
     setTimeout(function () {
@@ -57,19 +70,10 @@ function Register() {
     <section className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <h2 className="text-center mt-4">Registrarse</h2>
+          <h2 className="text-center mt-4">Register</h2>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="form-group">
-              <label htmlFor="text">Correo electrónico</label>
-              <input
-                onChange={(e) => handleChangeEmail(e)}
-                type="text"
-                className="form-control"
-                id="email"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="text">Usuario</label>
+              <label htmlFor="text">Username</label>
               <input
                 onChange={(e) => handleChangeUsername(e)}
                 type="text"
@@ -78,7 +82,7 @@ function Register() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="password">Password</label>
               <input
                 onChange={(e) => handleChangePassword(e)}
                 type="password"
@@ -87,7 +91,7 @@ function Register() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Confirmar Contraseña</label>
+              <label htmlFor="password">Confirm Password</label>
               <input
                 onChange={(e) => handleChangeConfirmPassword(e)}
                 type="password"
@@ -95,10 +99,11 @@ function Register() {
                 id="confirmPassword"
               />
             </div>
+            <p style={{ color: "#5EFF6B" }}>{successMessage}</p>
             <p>{errorMessage}</p>
             <div className="button-container">
               <button type="submit" className="btn btn-warning btn-block">
-                Crear una cuenta
+                Create an account
               </button>
             </div>
           </form>
