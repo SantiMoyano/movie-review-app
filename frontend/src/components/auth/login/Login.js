@@ -23,7 +23,7 @@ function Login({ handleLogin }) {
         password: password,
       });
       const token = response.data.token;
-      handleLogin(token);
+      handleLogin(token, username);
       home();
     } catch (err) {
       changeErrorMessage("Invalid username or password");

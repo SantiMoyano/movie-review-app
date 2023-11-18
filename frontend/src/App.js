@@ -9,9 +9,10 @@ import Login from "./components/auth/login/Login";
 import Register from "./components/auth/register/Register";
 import SessionManager from "./SessionManager";
 import api from "./api/axiosConfig";
+import Welcome from "./components/welcome/Welcome";
 
 function App() {
-  const { token, handleLogin, handleLogout } = SessionManager();
+  const { token, username, handleLogin, handleLogout } = SessionManager();
   const [isLoggedIn, setIsLoggedIn] = useState(token.length > 1);
   const [movies, setMovies] = useState();
   const [filteredMovies, setFilteredMovies] = useState();
@@ -57,9 +58,8 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(token.length > 1);
     setIsLoggedIn(token.length > 1);
-  }, [token, handleLogout]);
+  }, [token, username, handleLogout, isLoggedIn]);
 
   useEffect(() => {
     getMovies();
@@ -69,6 +69,7 @@ function App() {
   return (
     <div className="App">
       <Header isLoggedIn={isLoggedIn} />
+      <Welcome username={username} isLoggedIn={isLoggedIn} />
       <Routes>
         <Route
           path="/"
