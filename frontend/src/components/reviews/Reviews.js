@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ReviewForm from "./reviewForm/ReviewForm";
 import api from "../../api/axiosConfig";
 import SessionManager from "../../SessionManager";
+import "./Review.css";
 
 function Reviews({ getMovieData, movie, reviews, setReviews }) {
   const { token } = SessionManager();
@@ -49,12 +50,16 @@ function Reviews({ getMovieData, movie, reviews, setReviews }) {
     <Container>
       <Row>
         <Col>
-          <h3>Reviews</h3>
+          <div className="section-name">
+            <h3>Reviews</h3>
+          </div>
         </Col>
       </Row>
       <Row className="mt-2">
         <Col>
-          <img src={movie?.poster} alt="" />
+          <div className="poster-container">
+            <img src={movie?.poster} alt="" />
+          </div>
         </Col>
         <Col>
           {

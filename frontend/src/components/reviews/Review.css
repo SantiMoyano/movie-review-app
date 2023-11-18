@@ -1,0 +1,9 @@
+.section-name {
+  padding: 16px 0;
+}
+
+@media only screen and (max-width: 525px) {
+  .poster-container img {
+    max-width: 94dvw;
+  }
+}
