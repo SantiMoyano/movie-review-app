@@ -51,10 +51,14 @@ function App() {
   };
 
   function handleGenreClick(genreName) {
-    const filteredMovies = movies.filter((movie) =>
-      movie.genres.includes(genreName)
-    );
-    setFilteredMovies(filteredMovies);
+    if (genreName === "All") {
+      setFilteredMovies(movies);
+    } else {
+      const filteredMovies = movies.filter((movie) =>
+        movie.genres.includes(genreName)
+      );
+      setFilteredMovies(filteredMovies);
+    }
   }
 
   useEffect(() => {
