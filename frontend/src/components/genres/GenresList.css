@@ -4,10 +4,36 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 24px 0;
+  padding: 24px 0 4px 0;
+}
+
+.genreList h2 {
+  font-weight: bold;
+  cursor: default;
+}
+
+.genreList .btn-group {
+  color: white;
+  border: solid 2px white;
+  background-color: black;
+}
+
+.genreList .btn-group Button {
+  color: white;
+  transition: background-color 0.2s ease;
+  overflow: hidden;
+}
+
+.genreList .btn-group Button:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 @media (max-width: 840px) {
+  .genreList {
+    padding: 24px 0 24px 0;
+  }
+
   .genreList div {
     display: flex;
     flex-direction: column;
@@ -17,5 +43,19 @@
   .genre-btn {
     width: auto;
     margin-bottom: 0;
+  }
+
+  .genreList .btn-group {
+    color: white;
+    border: none;
+    background-color: black;
+  }
+
+  .genreList .btn-group Button {
+    color: white;
+    border: none;
+    background-color: black;
+    border: solid 2px white;
+    border-radius: 0;
   }
 }

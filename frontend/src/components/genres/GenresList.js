@@ -12,7 +12,7 @@ const GenresList = ({ genres, handleGenreClick }) => {
         {genres.map((genre) => (
           <Button
             key={genre.id}
-            variant={genre === selectedGenre ? "primary" : "secondary"}
+            variant={genre === selectedGenre ? "outline-dark" : "outline-dark"}
             onClick={() => handleGenreClick(genre.name)}
             className="genre-btn"
           >

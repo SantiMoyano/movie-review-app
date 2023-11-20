@@ -1,8 +1,12 @@
 import "./LastReviews.css";
-
+import { useNavigate } from "react-router-dom";
 function LastReviews({ allReviews, allMovies }) {
+  const navigate = useNavigate();
   const reversedReviews = [...allReviews].reverse();
   const lastFiveReviews = reversedReviews.slice(0, 5);
+  function goToReviewTrailer(trailerId) {
+    navigate(`/Trailer/${trailerId}`);
+  }
   return (
     <section className="last-reviews-container">
       <h2>Last Reviews</h2>
@@ -21,6 +25,7 @@ function LastReviews({ allReviews, allMovies }) {
               review={review}
               movieData={movieData}
               fechaFormateada={fechaFormateada}
+              goToReviewTrailer={goToReviewTrailer}
             />
           );
         })}
@@ -29,7 +34,7 @@ function LastReviews({ allReviews, allMovies }) {
   );
 }
 
-function Review({ review, movieData, fechaFormateada }) {
+function Review({ review, movieData, fechaFormateada, goToReviewTrailer }) {
   return (
     <>
       <li className="list-group-item">
@@ -42,7 +47,18 @@ function Review({ review, movieData, fechaFormateada }) {
                   alt={`Poster for ${movieData.title}`}
                   className="img-fluid"
                 />
-                <figcaption className="mt-2">Watch trailer</figcaption>
+                <figcaption
+                  onClick={() =>
+                    goToReviewTrailer(
+                      movieData.trailerLink.substring(
+                        movieData.trailerLink.length - 11
+                      )
+                    )
+                  }
+                  className="mt-2"
+                >
+                  Watch trailer
+                </figcaption>
               </figure>
             )}
           </div>
