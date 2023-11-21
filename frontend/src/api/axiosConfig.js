@@ -2,7 +2,7 @@ import axios from "axios";
 import SessionManager from "../SessionManager";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://movie-app-backend-7nkr.onrender.com",
 });
 
 // api.interceptors.request.use((config) => {
