@@ -18,6 +18,7 @@
 .movie-card-container {
   height: 550px;
   background-color: black;
+  border-top: solid 1px white;
 }
 
 .movie-card {

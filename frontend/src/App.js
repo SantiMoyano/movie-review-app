@@ -62,8 +62,8 @@ function App() {
   }
 
   useEffect(() => {
-    setIsLoggedIn(token.length > 1);
-  }, [token, username, handleLogout, isLoggedIn]);
+    setIsLoggedIn(token.length > 3);
+  }, [token, username, isLoggedIn]);
 
   useEffect(() => {
     getMovies();

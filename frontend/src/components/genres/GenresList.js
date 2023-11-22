@@ -7,7 +7,6 @@ const GenresList = ({ genres, handleGenreClick }) => {
 
   return (
     <section className="genreList">
-      <h2>Genres List</h2>
       <div className="btn-group">
         {genres.map((genre) => (
           <Button

@@ -1,7 +1,6 @@
 .auth-buttons {
   display: flex;
   gap: 8px;
-  padding-right: 16px;
   justify-content: center;
 }
 

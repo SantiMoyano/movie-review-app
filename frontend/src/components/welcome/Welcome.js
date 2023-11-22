@@ -9,7 +9,7 @@ function Welcome({ username, isLoggedIn }) {
       if (isLoggedIn) {
         setShowWelcome(false);
       }
-    }, 2000);
+    }, 5000);
   }, [isLoggedIn, username, showWelcome]);
 
   return (

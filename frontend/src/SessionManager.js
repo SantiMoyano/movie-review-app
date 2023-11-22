@@ -4,7 +4,7 @@ const SessionManager = () => {
   const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken || "");
   const initialUsername = localStorage.getItem("username");
-  const [username, setUsername] = useState(initialUsername);
+  const [username, setUsername] = useState(initialUsername || "");
 
   const handleLogin = (newToken, newUsername) => {
     setToken(newToken);
